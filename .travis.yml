@@ -1,0 +1,32 @@
+language: python
+dist: xenial
+python:
+- '2.7'
+- '3.4'
+- '3.5'
+- '3.6'
+- '3.7'
+branches:
+  except:
+  - gh-pages
+addons:
+  apt:
+    packages:
+    - python-pip
+before_install:
+- pip install -U pip
+- pip install pylint
+install:
+- make release-build
+- make install
+script:
+- pylint bin/ymlf setup.py
+deploy:
+  provider: pypi
+  skip_existing: true
+  on:
+    tags: true
+  user:
+    secure: 2DW3aV+t/AzyMYD6fS4lky+KIhy6hop/WLN4WTfy/imXcnEUvNZdg039yRAn+G+vZyCOpN4mroDza15O6wKK9C1FR44HdI/WCBVGNXEYEK8BscYRMmuwgKWoy6eN1U1SOHfl5d+odUdBpHo4cW8BOd7EcR1OB9s2oZO0Q5jqdwmSR2wPtcJ0gtkqYQGbSdQ3giENMQRwtUZnZOkn6uZEs9tMjBj14cHuio7uP4WM8+G6PiCz3mUz7Z3i43eR2C26EyLP7QybcK2knH+fhmD1SU1v10ryoLkI5fdstRvoin0991vSZYXSENQlZX5co5CG6OPt96ShoEySEiupv6FlJwuFmTRxqq8dfFlQgOU7ZHYAzA72MjZHEwCh4uJhMjngOlCzeG4/YOZGMiWN5pibFdJJQDXoOKVc1zPoCCaygKIzKo6DVn+inRLuBhodCAu2PLRQw+HfKpRteEeJYS+UMqL+XsvlC19Ea64gjITlBiI/5RY+e5PAFh2gi6tADxmIIleQsfk+OSBjcbxa8oV+VER5zzIGUjRh2ouyh9m86u6QSoyyPZL1PA95oBEhB9yWj+5dtKw7AeO0EPSS4k2hFUOOvu1FG768ItZvJ45WnHDlPJQpHfQbLQAQfanTGWmG5QkOwj+1FTBM3daISVMsbXmWS+V6x7ZowYaKqZgxYj0=
+  password:
+    secure: W9pjn87lLyTM8E6bAxk9bQAIvt7AKgIrnL5ApMuAN/EF/j8fydiB4zUzXipecnE/tpB4qO2MXqG0r6SggRtxWjNxy5fxd0lrZkC0OmKnaURO2n+xk1MQcGM6HR1HyUdzl/DhlDeEQtTEAgM3RZYQwZnmTFnT7RW0HEw433cAR0yYbwzpSyksr6IwEA/T2vo3aA6BO+WcCdgU2YaOy8FuI4uhbW5XZ+JxZFutEuz1IbAnd4mF5uXqmLm3lakxwxPoshl0VNu5auubAPe+mVTkxob27Q3xfx8E1bvTVcFYntju7YBtUh4pTdRxzM+QY7g3pKwkgUutvEb3pzDBwzOzKiJsPzc0F2sbsWsLj448kIGzEkPOCogdvuEGS7AI85xOePD/b6RZNOe5sgKrRIGZlt0fkJQ6LIS3sgqKfF4NZ4YyC9Ny4Xf2jQsb2Ae7g9544FjAKh8OTEfs1srxLaiVGrRevawhj8Xro+Hfmf3Noo+vcr+nDW67oPqhnVG2smxIjGbf1X8C6uMyXPFoc9iDDK2UX+EtKxzY3cyMGwjyDQ533bDDCCpaf29Xs/LGsUzqVEcxhxpIUU1qVueoHOTRrswN94rOfeQGg3nkCOT8javouOH6Oi2QZN4AVrpLBDOsyT/8ogk5wU1ROjYPLGDbawdfZfxMRxXAAUtZA+zEh5M=
