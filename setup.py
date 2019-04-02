@@ -18,7 +18,7 @@ def read(*parts):
 
 setup(
     name="ymlf",
-    version="0.0.1",
+    version="0.0.2",
     description="Command-line YAML parse and filtering",
     long_description=read('README.rst'),
     author="Simon A. F. Lund",
