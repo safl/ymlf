@@ -9,6 +9,10 @@ ymlf - Command-line YAML parser / filter
    :target: https://ymlf.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation Status
 
+.. image:: https://img.shields.io/pypi/v/ymlf.svg
+   :target: https://pypi.org/project/ymlf
+   :alt: PyPI
+
 Command-line tool that parses **YAML** from `stdin` and writes the parsed
 **YAML**, or a subset thereof, to `stdout`.
 
